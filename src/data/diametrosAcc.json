@@ -1,0 +1,13 @@
+{ 
+    "coefD": {
+        "Codo a 45": 14,
+        "Codo a 90": 30,
+        "Curva": 20,
+        "Te de flujos traves": 20,
+        "Reducciones": 10,
+        "Te de flujos 90": 60,
+        "Válvula globo": 333,
+        "Válvula esclusa": 7,
+        "Válvula macho": 100
+    }
+}
