@@ -64,7 +64,7 @@ const LongEqui = () => {
   ];
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center bg-gray-100">
       <dialog
         ref={modalRef}
         id="edit-modal"
@@ -82,9 +82,7 @@ const LongEqui = () => {
                 value={accesorio}
               />
             </div>
-            <span className="flex flex-row items-center justify-end text-gray-600">
-              Coef. : <span className="font-bold ml-2">{diametrosAcc.coefD[accesorio?.value]}</span>
-            </span>
+            
             <div>
               <label className="text-gray-600 mb-2">Diámetro (m)</label>
               <Select
@@ -94,8 +92,8 @@ const LongEqui = () => {
                 value={diametro}
               />
             </div>
-            <div>
-              <label htmlFor="cantidad" className="text-gray-600 mb-2">
+            <div className="flex flex-row gap-2 items-center">
+              <label htmlFor="cantidad" className="text-gray-600">
                 Cantidad
               </label>
               <input
@@ -105,16 +103,21 @@ const LongEqui = () => {
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value)}
               />
+              <span className="flex flex-row items-center justify-end text-gray-600">
+              Coef. : <span className="font-bold ml-2">{diametrosAcc.coefD[accesorio?.value]}</span>
+            </span>
             </div>
           </div>
 
-          <button
-            type="button"
-            onClick={() => onAddTramoDetail()}
-            className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition-all"
-          >
+         <div className="m-3">
+           <button
+             type="button"
+             onClick={() => onAddTramoDetail()}
+             className="btn btn-sm bg-gray-800 text-white rounded hover:bg-gray-700 transition-all"
+           >
             Agregar
           </button>
+         </div>
           <div className="modal-action flex justify-end gap-4 mt-6">
             <button
               className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 transition-all"

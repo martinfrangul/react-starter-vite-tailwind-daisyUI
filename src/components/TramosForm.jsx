@@ -4,7 +4,7 @@ import { TramosContext } from "../context/TramosContext";
 const TramosForm = () => {
   const context = useContext(TramosContext);
 
-  const { tramos, setTramos, longEquivalente } = context;
+  const { tramos, setTramos, longEquivalente, setLongEquivalente } = context;
 
   const [tramo, setTramo] = useState({});
   const [name, setName] = useState("");
@@ -18,8 +18,9 @@ const TramosForm = () => {
       kcal: parseInt(kcal),
       longTramo: parseInt(longTramo),
       longCalculo: parseInt(longCalculo),
+      longEquivalente: parseInt(longEquivalente)
     });
-  }, [name, kcal, longTramo, longCalculo]);
+  }, [name, kcal, longTramo, longCalculo, longEquivalente]);
 
   const onSubmitTramo = (event) => {
     event.preventDefault();
@@ -31,17 +32,18 @@ const TramosForm = () => {
     setLongTramo("");
     setLongCalculo("");
     setTramo({});
+    setLongEquivalente(null);
   };
 
   console.log(tramos);
 
   return (
     <form
-      className="flex flex-col w-full bg-gray-100 p-6 rounded-lg shadow-lg"
+      className="flex flex-col w-full bg-gray-100 rounded-lg shadow-lg"
       onSubmit={(event) => event.preventDefault()}
     >
       <div className="flex flex-row w-full mb-6">
-        <div className="flex flex-col gap-4 w-1/2 border-r border-gray-300 pr-4">
+        <div className="flex flex-col gap-4 w-1/2 border-r border-gray-300 p-4">
           <div className="flex flex-col">
             <label className="text-gray-700 text-sm mb-2">Tramo</label>
             <input
@@ -82,7 +84,7 @@ const TramosForm = () => {
             />
           </div>
         </div>
-        <div className="flex flex-col gap-4 w-1/2 pl-4">
+        <div className="flex flex-col gap-4 w-1/2 p-4">
           <div className="flex flex-col">
             <h3 className="text-gray-600 text-sm">Caudal</h3>
             <h3 className="text-lg font-semibold text-gray-800">860,2150538</h3>
@@ -111,7 +113,7 @@ const TramosForm = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center m-3">
         <button
           className="px-6 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition-all"
           onClick={onSubmitTramo}
